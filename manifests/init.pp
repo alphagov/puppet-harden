@@ -84,4 +84,13 @@ class harden {
     source => 'puppet:///modules/harden/etc/ssh/ssh_config',
   }
 
+  # login(1), init(8) and getty(8) will not perform record-keeping, or
+  # attempt to recreate this file, if it doesn't exist.
+  file { '/var/log/wtmp':
+    ensure  => present,
+    owner   => 'root',
+    group   => 'utmp',
+    mode    => '0664',
+  }
+
 }
