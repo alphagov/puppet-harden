@@ -70,7 +70,7 @@ class harden {
   file { '/etc/sysctl.conf':
     ensure => present,
     source => 'puppet:///modules/harden/etc/sysctl.conf',
-    notify => Exec['read sysctl.conf']
+    notify => Exec['read sysctl.conf'],
     owner  => 'root',
     group  => 'root',
   }
