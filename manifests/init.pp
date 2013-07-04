@@ -33,11 +33,15 @@ class harden {
   file { '/etc/security/access.conf':
     ensure => present,
     source => 'puppet:///modules/harden/etc/security/access.conf',
+    owner  => 'root',
+    group  => 'root',
   }
 
   file { '/etc/security/limits.conf':
     ensure => present,
     source => 'puppet:///modules/harden/etc/security/limits.conf',
+    owner  => 'root',
+    group  => 'root',
   }
 
   file { '/etc/security/limits.d':
@@ -45,6 +49,8 @@ class harden {
     purge   => true,
     force   => true,
     recurse => true,
+    owner  => 'root',
+    group  => 'root',
   }
 
   # Remove setuid privileges
@@ -65,6 +71,8 @@ class harden {
     ensure => present,
     source => 'puppet:///modules/harden/etc/sysctl.conf',
     notify => Exec['read sysctl.conf']
+    owner  => 'root',
+    group  => 'root',
   }
 
   exec { 'read sysctl.conf':
@@ -82,6 +90,8 @@ class harden {
   file { '/etc/ssh/ssh_config':
     ensure => present,
     source => 'puppet:///modules/harden/etc/ssh/ssh_config',
+    owner  => 'root',
+    group  => 'root',
   }
 
   # login(1), init(8) and getty(8) will not perform record-keeping, or
