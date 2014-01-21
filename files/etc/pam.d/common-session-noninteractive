@@ -29,5 +29,6 @@ session optional			pam_umask.so umask=0022
 # and here are more per-package modules (the "Additional" block)
 session required                        pam_unix.so
 # end of pam-auth-update config
+session required                        pam_limits.so
 session required                        pam_loginuid.so
 session optional                        pam_tmpdir.so
