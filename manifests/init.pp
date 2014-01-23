@@ -89,6 +89,14 @@ class harden {
     group  => 'root',
   }
 
+  file { '/etc/pam.d/common-session-noninteractive':
+    ensure    => present,
+    source    => 'puppet:///modules/harden/etc/pam.d/common-session-noninteractive',
+    subscribe => Package['libpam-tmpdir'],
+    owner     => 'root',
+    group     => 'root',
+  }
+
   file { '/etc/ssh/ssh_config':
     ensure => present,
     source => 'puppet:///modules/harden/etc/ssh/ssh_config',
