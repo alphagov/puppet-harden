@@ -49,8 +49,8 @@ class harden {
     purge   => true,
     force   => true,
     recurse => true,
-    owner  => 'root',
-    group  => 'root',
+    owner   => 'root',
+    group   => 'root',
   }
 
   # Remove setuid privileges
@@ -85,8 +85,8 @@ class harden {
     ensure    => present,
     source    => 'puppet:///modules/harden/etc/pam.d/common-session',
     subscribe => Package['libpam-tmpdir'],
-    owner  => 'root',
-    group  => 'root',
+    owner     => 'root',
+    group     => 'root',
   }
 
   file { '/etc/pam.d/common-session-noninteractive':
@@ -107,10 +107,10 @@ class harden {
   # login(1), init(8) and getty(8) will not perform record-keeping, or
   # attempt to recreate this file, if it doesn't exist.
   file { '/var/log/wtmp':
-    ensure  => present,
-    owner   => 'root',
-    group   => 'utmp',
-    mode    => '0664',
+    ensure => present,
+    owner  => 'root',
+    group  => 'utmp',
+    mode   => '0664',
   }
 
 }
