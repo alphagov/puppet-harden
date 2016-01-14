@@ -97,6 +97,13 @@ class harden {
     group     => 'root',
   }
 
+  file { '/etc/ssh/ssh_config':
+    ensure => present,
+    source => 'puppet:///modules/harden/etc/ssh/ssh_config',
+    owner  => 'root',
+    group  => 'root',
+  }
+
   # login(1), init(8) and getty(8) will not perform record-keeping, or
   # attempt to recreate this file, if it doesn't exist.
   file { '/var/log/wtmp':
