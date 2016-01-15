@@ -10,5 +10,5 @@ Host *
     Protocol 2
     SendEnv LANG LC_*
     StrictHostKeyChecking ask
-    UseRoaming No
+    UseRoaming no
     VisualHostKey yes
